@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<meta name="description" content="Free mobile product ad creator with voiceover and video export.">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+<title>AI Ad Creator</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">✦</div>
+  <div><h1>AI Ad Creator</h1><p>Product videos made simple</p></div>
+  <span class="free-tag">FREE MVP</span>
+</header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">YOUR PRODUCT. YOUR NEXT AD.</p>
+    <h2>Create a scroll-stopping<br><span>product video</span></h2>
+    <p class="muted">Turn one product photo into a vertical ad with animated visuals, voiceover and a ready-to-copy caption.</p>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading"><span class="step">1</span><div><h3>Product details</h3><p>Add a photo and basic details</p></div></div>
+    <label class="upload-box" for="photoInput">
+      <input id="photoInput" type="file" accept="image/*">
+      <div id="uploadPlaceholder"><span class="upload-icon">＋</span><strong>Tap to add product photo</strong><small>JPG or PNG from your phone</small></div>
+      <img id="photoPreview" alt="Product preview" hidden>
+    </label>
+    <div class="fields">
+      <label>Product name<input id="productName" placeholder="e.g. ASUS Chromebook CX14"></label>
+      <div class="two-col">
+        <label>Price (₹)<input id="productPrice" inputmode="decimal" placeholder="24990"></label>
+        <label>Offer / key benefit<input id="benefit" placeholder="e.g. Great for students"></label>
+      </div>
+      <label>Product or affiliate link<input id="productLink" type="url" placeholder="https://..."></label>
+      <label>Audience
+        <select id="audience">
+          <option>Everyday shoppers</option><option>Students</option><option>Tech lovers</option>
+          <option>Working professionals</option><option>Parents and families</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading"><span class="step">2</span><div><h3>Build your ad</h3><p>Choose a look and voiceover</p></div></div>
+    <label>Ad style
+      <select id="adStyle"><option value="bold">Bold & energetic</option><option value="premium">Premium & minimal</option><option value="friendly">Friendly & helpful</option></select>
+    </label>
+    <label>Video length
+      <select id="duration"><option value="15">15 seconds</option><option value="20">20 seconds</option><option value="30">30 seconds</option></select>
+    </label>
+    <label>Voice language
+      <select id="voiceLanguage"><option value="en-IN">English (India)</option><option value="hi-IN">Hindi</option><option value="en-US">English (US)</option></select>
+    </label>
+    <div class="button-row">
+      <button id="generateCopy" class="button secondary">✦ Generate ad copy</button>
+      <button id="previewVoice" class="button secondary">🔊 Test voice</button>
+    </div>
+    <label>Voiceover script<textarea id="scriptText" rows="4" placeholder="Your ad script will appear here. You can edit it."></textarea></label>
+    <p class="hint">Voice uses your device's built-in speech engine when available. Some phones need an internet connection for certain voices.</p>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading"><span class="step">3</span><div><h3>Video preview</h3><p>Portrait format for Reels and Shorts</p></div></div>
+    <div class="preview-wrap">
+      <canvas id="adCanvas" width="720" height="1280" aria-label="Animated ad preview"></canvas>
+      <div class="preview-label">9:16 VERTICAL</div>
+    </div>
+    <div class="button-row">
+      <button id="previewAd" class="button secondary">▶ Preview animation</button>
+      <button id="exportVideo" class="button primary">⬇ Create video</button>
+    </div>
+    <p id="status" class="status" role="status">Add product details, then generate your ad.</p>
+    <a id="downloadLink" class="download-link" hidden>Download your MP4 video</a>
+    <p class="hint">Keep this page open while recording. Video export depends on your browser's MediaRecorder support.</p>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading"><span class="step">4</span><div><h3>Social caption</h3><p>Copy and post with your video</p></div></div>
+    <textarea id="captionText" rows="5" placeholder="Your caption will appear here."></textarea>
+    <div class="button-row">
+      <button id="makeCaption" class="button secondary">Generate caption</button>
+      <button id="copyCaption" class="button primary">Copy caption</button>
+    </div>
+    <p class="hint">For affiliate promotions, clearly disclose that your link may earn you a commission. Verify product claims and price before posting.</p>
+  </section>
+</main>
+<footer><span>AI Ad Creator · MVP 0.1</span><span>Built for mobile</span></footer>
+<script src="app.js"></script>
+</body>
+</html>
